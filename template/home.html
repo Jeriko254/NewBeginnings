@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+      <link rel="icon" href="{% static 'assets/img_8.png' %}">
+    <title>Home</title>
+</head>
+<style>
+:root {
+  --primary-color: gold;
+  --secondary-color: #3498db;
+  --text-color:black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: blanchedalmond;
+  color: #000000;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  animation: headerSlideDown 0.5s ease-out;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo svg {
+  animation: rotateLogo 4s infinite linear;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  transition: width 0.3s ease;
+    background-color: dodgerblue;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+@keyframes headerSlideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+
+@keyframes rotateLogo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+button{
+    background-color: dodgerblue;
+    border-radius: 10px;
+    width: 90px;
+    padding: 3px;
+    height: 40px;
+    font-weight: bolder;
+
+}
+.jerry{
+    padding-top: 10px;
+    width: 97px;
+
+}
+#poxy{
+    background-color: red;
+}
+footer {
+  background: blanchedalmond;
+  color: black;
+  padding: 2rem 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.footer-section h3 {
+  color: dodgerblue;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 50px;
+  height: 2px;
+  background: black;
+  transition: width 0.3s ease;
+}
+
+.footer-section h3:hover::after {
+  width: 100px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.footer-section ul li:hover {
+  transform: translateX(10px);
+}
+
+.footer-section a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #e74c3c;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons svg {
+  width: 24px;
+  height: 24px;
+  fill: dodgerblue;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover svg {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  width: 100%;
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+</style></html><body>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="#3498db" stroke-width="4"/>
+          <path d="M20 10 L20 30 M10 20 L30 20" stroke="#3498db" stroke-width="4"/>
+        </svg>
+        <h1 style="font-size: xx-large;color: black;font-weight: bolder;text-decoration: underline;text-decoration-color: dodgerblue;margin-right:10px">NewBeginnings</h1>
+      </div>
+      <nav>
+        <ul>
+         <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'articles' %}">Articles</a></li>
+            <li><a href="{% url 'affirmation' %}">Affirmations</a></li>
+         <li><a href="{% url 'streak' %}">Streak</a></li>
+         <li><a href="{% url 'support' %}">Support</a></li>
+             <li><a href="{% url 'reviews' %}">Reviews</a></li>
+          <li><a href="{% url 'emergency' %}">Emergency</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NewBeginnings</title>
+</head>
+<style>
+:root {
+ background-size: cover;
+    background-repeat: no-repeat;
+     background-image:url("{% static 'assets/img_6.png' %}")
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+
+
+</style>
+</head>
+<body>
+<main>
+
+    <html><head><base href="." />
+<style>
+
+
+  .container {
+    text-align: center;
+      margin-bottom: 10px;
+  }
+
+  .breathing-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: blanchedalmond;
+    animation: breathe 10s infinite ease-in-out;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .breathing-circle span {
+    text-align: center;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    padding: 1rem;
+    line-height: 1.4;
+  }
+
+
+  @keyframes breathe {
+    0% {
+      transform: scale(0.8);
+      background: blanchedalmond;
+    }
+    25% {
+      transform: scale(1);
+      background: blanchedalmond;
+    }
+    50% {
+      transform: scale(0.8);
+      background: blanchedalmond;
+    }
+    75% {
+      transform: scale(1);
+      background: blanchedalmond;
+    }
+    100% {
+      transform: scale(0.8);
+      background: blanchedalmond;
+    }
+  }
+
+  .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background:dodgerblue;
+        color: black;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+      margin-bottom: 10px;
+      margin-left: 550px;
+        transition: transform 0.3s, box-shadow}
+
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1 style="font-size:30px;font-weight: bolder ">Welcome To NewBeginnings Champ😊!!</h1>
+  <p style="font-weight: bold">Every moment of sobriety is a victory. You're not alone.</p>
+  <div class="breathing-circle" onclick="toggleExercise()">
+    <span style="font-weight:">Click for breathing exercise</span>
+  </div>
+</div>
+
+      <div class="content">
+            <h1 style="text-align: center;margin-bottom: 10px">Your Journey to Recovery Starts Here</h1>
+
+            <a href="{% url 'about' %}" class="cta-button">Start Your Journey Today</a>
+        </div>
+
+<script>
+let isRunning = false;
+
+function toggleExercise() {
+  const circleText = document.querySelector('.breathing-circle span');
+
+  if (!isRunning) {
+    isRunning = true;
+    updateInstruction();
+  } else {
+    isRunning = false;
+    circleText.textContent = 'Click for breathing exercise';
+  }
+}
+
+function updateInstruction() {
+  const circleText = document.querySelector('.breathing-circle span');
+  let phase = -1;
+
+  function updatePhase() {
+    if (!isRunning) return;
+
+    phase = (phase + 1) % 3;
+    switch(phase) {
+      case 0:
+        circleText.textContent = 'Breathe in...';
+        break;
+      case 1:
+        circleText.textContent = 'Hold...';
+        break;
+      case 2:
+        circleText.textContent = 'Breathe out...';
+        break;
+      case 3:
+        circleText.textContent = 'Breathe in...';
+        break;
+    }
+  }
+
+  const intervalId = setInterval(() => {
+    if (!isRunning) {
+      clearInterval(intervalId);
+      return;
+    }
+    updatePhase();
+  }, 2000);
+
+  updatePhase(); // Initial update
+}
+</script>
+</body></html>
+
+
+
+
+
+</main>
+
+  <footer>
+ <div class="wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" style="width: 100%; height: 50px;">
+      <path fill="#ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+    </svg>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Newsletter</h3>
+      <p>Break Free Live Strong. Join our community today!</p>
+        <p> Small Steps, Big Changes!</p>
+        <p>Support is Key!</p>
+      <div class="social-icons">
+        <a href="https://facebook.com" aria-label="Facebook">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+          </svg>
+        </a>
+        <a href="https://x.com" aria-label="X (formerly Twitter)">
+          <svg viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a href="https://linkedin.com" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24">
+            <path d="M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A3.26,3.26 0 0,0 15.24,9.94C14.39,9.94 13.4,10.46 12.92,11.24V10.13H10.13V18.5H12.92V13.57C12.92,12.8 13.54,12.17 14.31,12.17A1.4,1.4 0 0,1 15.71,13.57V18.5H18.5M6.88,8.56A1.68,1.68 0 0,0 8.56,6.88C8.56,5.95 7.81,5.19 6.88,5.19A1.69,1.69 0 0,0 5.19,6.88C5.19,7.81 5.95,8.56 6.88,8.56M8.27,18.5V10.13H5.5V18.5H8.27Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'streak' %}">Streak</a></li>
+        <li><a href="{% url 'affirmation' %}">Affirmations</a></li>
+          <li><a href="{% url 'articles' %}">Articles</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contact Info</h3>
+      <ul>
+        <li>📍 Narok,Maasai Mara University,Gate C</li>
+        <li>📞 (+254) 729536188</li>
+        <li>✉️ poxy014@gmail.com</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2024 NewBeginnings. All rights reserved.</p>
+  </div>
+  </footer>
+</body></html>

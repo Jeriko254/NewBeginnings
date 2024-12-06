@@ -1,0 +1,190 @@
+<!doctype html>
+ {% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{% static 'assets/img_5.png' %}">
+    <title>Registration</title>
+</head>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image:url("{% static 'assets/img_6.png' %}")
+}
+
+.container {
+
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    border:2px solid dodgerblue;
+    backdrop-filter: blur(5px);
+}
+
+.form-title {
+    text-align: center;
+    color:black;
+    margin-bottom: 2rem;
+    font-size: 2em;
+    transform: translateZ(50px);
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background: transparent;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group label {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: black;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: -20px;
+    font-size: 0.8rem;
+    color: black;
+}
+
+.input-group input:focus {
+    border-bottom: 2px solid #4ecdc4;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background:dodgerblue;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.submit-btn:hover {
+    background: #45b7af;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+.decoration {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.decoration:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation: float 7s infinite;
+}
+
+.decoration:nth-child(2) {
+    top: 60%;
+    right: 20%;
+    animation: float 5s infinite;
+}
+
+.decoration:nth-child(3) {
+    bottom: 20%;
+    left: 30%;
+    animation: float 6s infinite;
+}
+a{
+    color: inherit;
+    text-decoration: inherit;
+
+}
+</style>
+</head>
+<body>
+    <div class="decoration"></div>
+    <div class="decoration"></div>
+    <div class="decoration"></div>
+
+    <div class="container">
+        <h1 class="form-title">Sign Up</h1>
+        <form id="registrationForm" method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text"  name="fullname" required>
+                <label>Fullname</label>
+            </div>
+
+             <div class="input-group">
+                <input type="text"  name="username" required>
+                <label>Username</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email"  name="email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+
+
+            <button type="submit" class="submit-btn">Register</button>
+            <a href="{% url 'login' %}" ><p style="text-align: center">Already have an account?Log in</p></a>
+        </form>
+    </div>
+
+    <script>
+
+    </script>
+</body></html>
